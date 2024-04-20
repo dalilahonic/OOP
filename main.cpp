@@ -563,3 +563,598 @@
 //     return 0;
 
 // }
+
+//...................................................................
+
+// class Fibonaci {
+//     public:
+//         int n;
+//         int *niz;
+//     public: 
+//         Fibonaci() {
+//             std::cout<<"Unesite n"<<std::endl;
+//             std::cin>>n;
+//             niz = new int[n];
+//             niz[0] = 1;
+//             niz[1] = 1;
+//             for(int i = 2; i < n; i++) {
+//                 niz[i] = niz[i - 1] + niz[i - 2];
+//             }
+//         }
+//         Fibonaci(int n) {
+//             this->n = n;
+//             niz = new int[this->n];
+//             niz[0] = 1;
+//             niz[1] = 1;
+//             for(int i = 2; i < n; i++) {
+//                 niz[i] = niz[i - 1] + niz[i - 2];
+//             }
+//         }
+
+//         // Copy constructor
+//         // In C++, if you don't provide your own copy constructor, the compiler generates a default copy constructor for you. However, if your class manages dynamically allocated resources (like in your example with the niz array), it's often necessary to provide a custom copy constructor to perform a deep copy of the resources.
+//         Fibonaci(const Fibonaci &F) {
+//             this->n = F.n;
+//             niz = new int[this -> n];
+//             for(int i = 0; i < this->n; i++) {
+//                 this->niz[i] = F.niz[i];
+//             }
+            
+//         }
+//         int suma() {
+//             int s = 0;
+//             for(int i = 0; i < this->n; i++) {
+//                 s+= niz[i];
+//             }
+//             return s;
+//         }
+//         int vrednost(int i) {
+//             if(i > n) return -1;
+
+//             return niz[i - 1];
+//         }
+//         void prosiri(int x) {
+//             int *pomocni;
+//             pomocni = new int[n];
+//             for(int i = 0; i < n; i++) {
+//                 pomocni[i] = niz[i];
+//             }
+//             delete [] niz;
+            
+//             n+=x;
+//             niz = new int[n];
+
+//             for(int i = 0; i < (n - x); i++) {
+//                 niz[i] = pomocni[i];
+//             }
+
+//             for(int i = (n - x); i < n; i++) {
+//                 niz[i] = niz[i - 1] + niz[i - 2]; 
+//             }
+//         }
+//         ~Fibonaci() {
+//             delete [] niz;
+//         }
+// };
+
+// int main() {
+//     Fibonaci f1, f2(10);
+//     f1.prosiri(10);
+
+//     for(int i = 0; i< f1.n; i++) {
+//         std::cout<<"Element "<< i + 1<< ":"<<std::endl;
+//         std::cout<<f1.niz[i]<<" "<<std::endl;
+//     }
+
+//     Fibonaci f3 = f1; // Copy constructor called
+
+//     return 0;
+// }
+
+//...........................................
+
+// class Niz {
+//     public:
+//         int *elementi;
+//         int n;
+//     public:
+//         Niz() {
+//             n = 10;
+//             elementi = new int[n];
+//             for(int i = 0; i < n; i++) {
+//                 elementi[i] = 0;
+//             }
+//         }
+
+//         Niz(int broj_el) {
+//             n = broj_el;
+//             elementi = new int[n];
+//         }
+
+//         void ucitaj_elemente() {
+        
+//             std::cout<<"unesite "<<n<<" celobrojnih elemenata niza\n";
+//             for(int i = 0; i < n; i++) {
+//                 std::cin>>elementi[i];
+//             }
+//         }
+
+//         Niz(const Niz& niz1) {
+//             n = niz1.n;
+//             elementi = new int[n];
+//             for(int i = 0; i < n; i++) {
+//                 elementi[i] = niz1.elementi[i];
+//             }
+//         }
+
+//         // destruktor
+//         ~Niz() {
+//             delete [] elementi;
+//         }
+
+//         //n1(1,2,3,4) + n2(4,5)= n3(5,7,3,4)
+//         //n3=n1.dodaj(n2)   
+//         Niz dodaj(const Niz& n2) {
+//             Niz n3(n);
+//             for(int i = 0; i < n; i++) {
+//                 n3.elementi[i] = elementi[i];
+//             }
+
+//             for(int i = 0; i < n2.n; i++) {
+//                 n3.elementi[i] += n2.elementi[i];
+//             }
+
+//             return n3;
+//         }
+
+//          //n1(1,2,3,4), n2(4,5)= n3(1,2,3,4,4,5)
+//         Niz dopisi(const Niz& n2) {
+
+//             Niz n3(n + n2.n);
+//             for(int i = 0; i < n; i++) {
+//                 n3.elementi[i] = elementi[i];
+//             }
+
+//             for(int i = 0; i < n2.n; i++) {
+//                 n3.elementi[n + i] = n2.elementi[i];
+//             }
+
+//             return n3;
+//         }
+
+//         //Podniz niza koji sadrzi samo parne elemente
+//         //  n2 =n1.podnizpar();
+//         Niz podnizpar() {
+//             int k = 0;
+//             for(int i = 0; i < n; i++) {
+//                 if(elementi[i] % 2 == 0) k++;
+//             }
+
+//             Niz n2(k);
+//             k= 0;
+//             for(int i = 0; i < n; i++) {
+//                 if(elementi[i] % 2 == 0) {
+//                     n2.elementi[k] = elementi[i];
+//                     k++;
+//                 }
+//             }
+
+//             return n2;
+//         }
+// };  
+
+// int main() {
+
+//     Niz n1(5);
+//     n1.ucitaj_elemente();
+
+//     Niz n2 = n1;
+//     Niz n3=n1.dodaj(n2);
+//     Niz n4=n3.dopisi(n2);
+//     // n1.dodaj(n2).ispisi();
+//     // n3.dopisi(n2).ispisi();
+
+//     return 0;
+
+// }
+
+//..............................................
+
+// class Polinom {
+//     public:
+//         int n;
+//         double* koeficijenti;
+//     public:
+//         Polinom() {
+//             n = 0;
+//             koeficijenti = new double[n + 1];
+//             for(int i = 0; i < n + 1; i++) {
+//                 koeficijenti[i] = 1;
+//             }
+//         }
+//         Polinom(int n1) {
+//             n = n1;
+//             koeficijenti = new double[n + 1];
+            
+//         }
+
+//         // konstruktor koprianja
+//         Polinom(const Polinom &poly) {
+//             n = poly.n;
+//             koeficijenti = new double[n + 1];
+
+//             for(int i = 0; i < n + 1; i++) {
+//                 koeficijenti[i] = poly.koeficijenti[i];
+//             }
+//         }
+
+//          void ucitaj_koeficijente(){
+//             std::cout<<"Unesite koeficijente za polinom stepena "<<n<<std::endl;
+
+//             for(int i=0;i<n+1;i++) {
+//                 std::cin>>koeficijenti[i];
+//             }
+//         }
+//         void ispisi(){
+//             std::cout<<"p="<<koeficijenti[0];
+//             for(int i=1;i<n+1;i++)
+//         std::cout<<" + "<<koeficijenti[i]<<"x^"<<i;
+//         std::cout<<std::endl;
+//         }
+// };
+
+//....................................
+
+// class Red {
+//     public:
+//         int *vr_cekanja;
+//         int n;
+//     public:
+//         Red() {
+//             n = 5;
+//             vr_cekanja = new int[n];
+//             for(int i = 0; i < n; i++) {
+//                 vr_cekanja[i] = 2;
+//             }
+//         }
+
+//         Red(int br_kupaca) {
+//             n = br_kupaca;
+//             vr_cekanja = new int[n];
+//             std::cout<<"Unesite vreme cekanja za"<<n<<" kupaca"<<std::endl;
+
+//             for(int i = 0; i < n; i++) {
+//                 std::cin>>vr_cekanja[i];
+//             }
+//         }
+
+//         Red(int br_kupca, int p) {
+//             n = br_kupca;
+//             vr_cekanja = new int[n];
+//         }
+
+//         Red(const Red& red1) {
+//             n = red1.n;
+//             vr_cekanja = new int[n];
+            
+//             for(int i = 0; i < n; i++) {
+//                 vr_cekanja[i] = red1.vr_cekanja[i];
+//             }
+//         }
+
+//         ~Red() {
+//             delete []vr_cekanja;
+//         }
+
+//         Red dodaj(const Red& red1) {
+//             Red novi(n + red1.n, 0);
+//             for(int i = 0; i < n; i++) {
+//                 novi.vr_cekanja[i] = vr_cekanja[i];
+//             }
+
+//             for(int i = n; i < novi.n; i++ ) {
+//                 novi.vr_cekanja[i] = red1.vr_cekanja[i - n];
+//             }
+            
+//             return novi;
+//         }
+
+//         void pisi() {
+//             for(int i = 0; i < n; i++) {
+//                 std::cout<<vr_cekanja[i]<<" ";
+//             }
+//                 std::cout<<std::endl;
+//         }
+
+// };
+
+// main() {
+//     Red kasa1, kasa2(3);
+//     Red kasa3 = kasa2;
+//     Red kasa4 = kasa1.dodaj(kasa2);
+//     kasa4.dodaj(kasa2).dodaj(kasa1).dodaj(kasa1).pisi();
+// }
+
+// ...............................
+
+// // PRIJATELJSKE FUNKCIJE
+
+// class X {
+//     friend void g (int, X&); // prijateljska globalna funkcija
+//     friend void Y::h(); // prijateljska clanica h druge klase Y
+//     int i;
+
+//     public:
+//         void f(int ip) {
+//             i = ip;
+//         }
+
+// };
+// void g(int k, X &x) {
+//     x.i = k;
+//     // prijateljska funkcija moze da pristupa privatnim clanovima klase
+// }
+
+// void main() {
+//     X x;
+//     x.f(5); // postavljanje preko clanice
+//     g(6, x); // postavljanje preko prijatelja
+// }
+
+//.........................................
+
+// class MojaKlasa {
+//     private:
+//         int data;
+//     public:
+//         MojaKlasa(): data(0) {};
+//         friend void displayData(const MojaKlasa&); 
+// };
+
+// void displayData(const MojaKlasa& obj) {
+//     std::cout<<"Data: "<<obj.data<<std::endl;
+// }
+
+// int main() {
+//     MojaKlasa obj;
+
+//     displayData(obj);
+// }
+
+// ...................................................
+
+// // ENUMERACIJA
+
+// using namespace std;
+
+// enum Zanr {POP, REP, ROK};
+    
+// class Izvodac {
+//     string naziv;
+//     Zanr zanr;
+//     //static string str_zanr[];
+
+//     string nadiZanr(Zanr zanr) {
+//         switch(zanr) {
+//             case 0:
+//                 return "POP";
+//                 break;
+//             case 1:
+//                 return "REP";
+//                 break;
+//             case 2:
+//                 return "ROK";
+//                 break;
+//             default: 
+//                 return "GRESKA";
+//                 break;
+//         } 
+//     };
+
+//     public:
+//         Izvodac(string naz, Zanr z):
+//         naziv(naz), zanr(z){}
+//         Izvodac() {
+//             naziv = "Micko",
+//             zanr = POP;
+//         }
+//         Zanr getZanr() const {
+//             return zanr;
+//         }
+//         void pisi();
+// };
+
+// void Izvodac::pisi() {
+//     cout<<naziv<<"("<<nadiZanr(zanr)<<")"<<endl;
+// }
+
+// class Pesma {
+//     int min, sek;
+//     string naziv;
+//     Izvodac *izv; 
+//     int br, kap;
+
+//     public:
+//         Pesma(int m, int s, string naz, int k): 
+//         min(m), sek(s), naziv(naz) {
+//             kap = k;
+//             izv = new Izvodac[kap];
+//             br = 0;
+//         }
+//         ~Pesma() {
+//             delete [] izv;
+//         }
+
+//         void dodaj(Izvodac *i) {
+//             if(br < kap) izv[br++] = *i;
+//         }
+
+//         int dohvSek() const {
+//             return sek;
+//         }
+
+//         int dohvMin() const {
+//             return min;
+//         }
+
+//         void pisi() const;
+
+//         friend bool duze(const Pesma & p1, const Pesma &p2) {
+//             if(p1.min > p2.min || p1.min == p2.min && p1.sek > p2.sek) return true;
+//             else return false;
+//         }
+// };
+
+// void Pesma::pisi() const {
+//     cout<<"P("<<naziv<<"-"<<min<<":"<<sek<<")"<<endl;
+//     cout<<"Izvodaci: ";
+//     for(int i = 0; i < br; i++) {
+//         izv[i].pisi();
+//     }
+// }
+
+//     int main() {
+//         Izvodac iz1("Micko", POP), iz2("Uki", ROK), iz3("Jocke", REP);
+//         Pesma p1(2, 55, "Pesma", 2), p2(3, 23, "Pesma2", 1), p3(2, 49, "Pesma3", 1);
+        
+//         iz1.pisi();
+//         iz2.pisi();
+//         iz3.pisi();
+
+//         return 0;
+// }
+
+//.......................................................
+
+// OBJEKAT KLASE KAO PODATAK (ATRIBUT)
+
+// class Tacka {
+//     int x, y;
+//     public:
+//         Tacka() {
+//             x = 1;
+//             y = 1;
+//         }
+// };
+
+// class Duz {
+//     Tacka pocetak, kraj;
+// }
+
+//...............................................
+
+// using namespace std;
+
+// class Prava {
+//     private:
+//         int x1, y1, x2, y2;
+//         float d;
+
+//     public:
+//         Prava() {
+//             x1 = 0;
+//             y1 = 0;
+//             x2 = 10;
+//             y2 = 10;
+//         }
+
+//         Prava(int x1, int y1, int x2, int y2) {
+//             this -> x1 = x1;
+//             this -> y1 = y1;
+//             this -> x2 = x2;
+//             this -> y2 = y2;
+//         }
+
+//         void setX1 (int a) {
+//             x1 = a;
+//         }
+//         void setY1 (int a) {
+//             y1 = a;
+//         }
+//         void setX2 (int a) {
+//             x2 = a;
+//         }
+//         void setY2 (int a) {
+//             y2 = a;
+//         }
+
+//         int getX1() {
+//             return x1;
+//         }
+
+//         int getY1 () {
+//             return y1;
+//         }
+
+//         int getX2() {
+//             return x2;
+//         }
+
+//         int getY2() {
+//             return y2;
+//         }
+
+//         float racunajDuzinu() {
+//             d = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+//             return d;
+//         }
+
+//         void ipis() {
+//             cout<<"Prava: ("<<x1<<","<<y1<<") - ("<<x2<<","<<y2<<")"<<endl;
+//         }
+
+// };
+
+// class Kvadrat {
+//     private:
+//         Prava vrh, dno;
+//     public:
+//         Kvadrat() {
+//             vrh.setX1(1);
+//             vrh.setY1(1);
+//             vrh.setX2(2);
+//             vrh.setY2(2);
+
+//             dno.setX1(3);
+//             dno.setY1(3);
+//             dno.setX2(4);
+//             dno.setY2(4);
+//         }
+
+//         Kvadrat(Prava p1, Prava p2) {
+//             vrh.setX1(po1.getX1());
+//             vrh.setY1(po1.getY1());
+//             vrh.setX2(po1.getX2());
+//             vrh.setY2(po1.getY2());
+//             dno.setx1(po2.getx1());
+//             dno.sety1(po2.gety1()); 
+//             dno.setx2(po2.getx2()); 
+//             dno.sety2(po2.gety2()); 
+//         } 
+
+//         float povrsina() {
+//             return pow(vrh.racunajDuzinu(), 2);
+//         }
+//         float obim() {
+//             return 4 * vrh.racunajDuzinu();
+//         }
+//         void ispis() {
+//             cout<<"Povrsina= "<<povrsina()<<" Obim = "<<obim()<<endl;
+//         }
+// };
+
+// int main() { 
+//     prava po1(0,10,10,10), po2; 
+//     kvadrat ko1(po1, po2); 
+//     ko1.ispis(); 
+//     return 0; 
+// }
+
+//...................................................................
+
+// class Ocena {
+//     char imePredmeta[20];
+//     int oc;
+//     char datum[10];
+
+// }
