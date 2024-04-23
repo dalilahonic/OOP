@@ -968,6 +968,14 @@
 //     cout<<naziv<<"("<<nadiZanr(zanr)<<")"<<endl;
 // }
 
+// // string Izvodjac::str_zanr[]
+// // = { "pop", "rep", "rok" };
+
+// //  void Izvodjac::pisi() {
+// // cout << naziv << "(" << str_zanr[zanr] << ")" << endl;
+// // }
+
+
 // class Pesma {
 //     int min, sek;
 //     string naziv;
@@ -1039,6 +1047,9 @@
 
 // class Duz {
 //     Tacka pocetak, kraj;
+
+//     public:
+//         Duz() : pocetak(), kraj() {}
 // }
 
 //...............................................
@@ -1122,14 +1133,14 @@
 //         }
 
 //         Kvadrat(Prava p1, Prava p2) {
-//             vrh.setX1(po1.getX1());
-//             vrh.setY1(po1.getY1());
-//             vrh.setX2(po1.getX2());
-//             vrh.setY2(po1.getY2());
-//             dno.setx1(po2.getx1());
-//             dno.sety1(po2.gety1()); 
-//             dno.setx2(po2.getx2()); 
-//             dno.sety2(po2.gety2()); 
+//             vrh.setX1(p1.getX1());
+//             vrh.setY1(p1.getY1());
+//             vrh.setX2(p1.getX2());
+//             vrh.setY2(p1.getY2());
+//             dno.setX1(p2.getX1());
+//             dno.setY1(p2.getY1()); 
+//             dno.setX2(p2.getX2()); 
+//             dno.setY2(p2.getY2()); 
 //         } 
 
 //         float povrsina() {
@@ -1144,17 +1155,431 @@
 // };
 
 // int main() { 
-//     prava po1(0,10,10,10), po2; 
-//     kvadrat ko1(po1, po2); 
+//     Prava po1(0,10,10,10), po2; 
+//     Kvadrat ko1(po1, po2); 
 //     ko1.ispis(); 
 //     return 0; 
 // }
 
 //...................................................................
 
+// using namespace std;
+
 // class Ocena {
 //     char imePredmeta[20];
-//     int oc;
+//     int ocena;
 //     char datum[10];
 
+//     public:
+//         Ocena() {
+//             strcpy(imePredmeta, "OOP");
+//             ocena = 10;
+//             strcpy(datum,"15.01.2019"); 
+//         }
+
+//         Ocena(char *ip, int o, char *d) {
+//             strcpy(imePredmeta, ip);
+//             ocena = o;
+//             strcpy(datum, "15.01.2019");
+//         }
+
+//         bool jeLiPolozio() {
+//             if(ocena > 5) return true;
+//             return false;
+//         }
+
+//         void ispisi() {
+//             cout<<"Naziv predmeta: "<<imePredmeta<<endl;
+//             cout<<"Ocena: "<<ocena<<endl;
+//             cout<<"Datum polaganja: "<<datum<<endl;
+//         }
+
+//         void setImePredmeta(char *ip) {
+//             strcpy(imePredmeta, ip);
+//         }
+
+//         void setOcena(int o) {
+//             ocena = o;
+//         }
+
+//         void setDatum(char *d) {
+//             strcpy(datum, d);
+//         }
+
+//         char *getImePredmeta() {
+//             return imePredmeta;
+//         }
+
+//         int getOcena() {
+//             return ocena;
+//         }
+
+//         char *getDatum() {
+//             return datum;
+//         }
+
+//         // copy constructor
+//         Ocena (const Ocena &ocn) {
+//             strcpy(imePredmeta, ocn.imePredmeta);
+//             ocena = ocn.ocena;
+//             strcpy(datum, ocn.datum);
+//         }
+
+// };
+
+// class Student {
+//     char imeIprezime[30];
+//     Ocena ocena1, ocena2, ocena3;
+
+//     public:
+//         Student() {
+//             strcpy(imeIprezime, "Hamza");
+//             ocena1.setImePredmeta("ORT");
+//             ocena1.setOcena(10);
+//             ocena1.setDatum("22.12.2025");
+//             ocena2.setImePredmeta("OET");
+//             ocena2.setOcena(5);
+//             ocena2.setDatum("02.02.2024");
+//             ocena3.setImePredmeta("programiranje");
+//             ocena3.setOcena(8);
+//             ocena3.setDatum("24.07.2024");
+//         }
+
+//         Student(char *ip, Ocena o1, Ocena o2, Ocena o3) {
+//             strcpy(imeIprezime, ip);
+//             ocena1 = o1;
+//             ocena2 = o2;
+//             ocena3 = o3;
+//         }
+
+//         int ukupnoPolozenih() {
+//             int s = 0;
+//             if(ocena1.jeLiPolozio() == true) s++;
+//             if(ocena2.jeLiPolozio() == true) s++;
+//             if(ocena3.jeLiPolozio() == ture) s++;
+
+//             return s;
+//         }
+
+//         float prosek() {
+//             float s = (ocena1.getOcena() + ocena2.getOcena() + ocena3.getOcena()) / 3;
+//             return s;
+//         }
+        
+//         void ispisi() {
+//             cout<<"Studnet "<<imeIprezime<<" je polozio "<<ukupnoPolozenih()<<" predmeta i prosek mu je "<<prosek()<<endl;
+//             cout<<"Ocene studenta su: "<<ocena1.ispisi()<<", "<<ocena2.ispisi()<<", "<<ocena3.ispisi();
+//         }
+// };
+
+// int main() {
+//     Student hamza;
+
+//     hamza.ispisi();
+//     Ocena o1,o2("OOP",9,"25.06.2018"),o3("AR2",8,"02.10.2018"); 
+//     Student enes("Enes",o1,o2,o3); 
+//     enes.ispisi();
+//     return 0; 
+// }
+
+//.............................................................................
+
+// STATICKI PODACI (ATRIBUTI) KLASE
+
+// using namespace std;
+
+// class Poklon {
+//     public:
+//         static int posId;
+//     private:
+//         int id;
+//         float cena;
+//     public: 
+//         Poklon(float c) {
+//             cena = c;
+//             // Svaki put kad kreiramo novi objekat uvećavamo posId
+//             // posId predstavlja broj trenutno stvorenih objekata
+//             id = ++posId;
+
+//         }
+
+//         // kopi konstruktor takode uvecava broj stvorenih objekata posId
+//         Poklon(const Poklon& p) {
+
+//             cena = p.cena;
+//             id = ++posId;
+
+//         }
+
+//         void ispis() {
+//             cout<<id<<"("<<cena<<")";
+//         }
+// };
+
+// int Poklon::posId = 0;
+
+// int main() {
+//     Poklon p1(500), p2(1500);
+
+//     p1.ispis();
+//     p2.ispis();
+//     Poklon p3 = p1;
+//     p3.ispis();
+//     cout<<"Trenutno je stvoreno "<<Poklon::posId<<" objekata klase Poklon"<<endl;
+//     return 0;
+
+// }
+
+//.....................................................
+
+// PREKLAPANJE OPERACIJA
+
+// using namespace std;
+
+// class Vektor {
+//     int v[3];
+//     public:
+//         Vektor(const int a[]) {
+//             for(int i = 0; i < 3; i++ ) v[i] = a[i];
+//         }
+
+//         int getX() {
+//             return v[0];
+//         }
+
+//         int getY() {
+//             return v[1];
+//         }
+
+//         int getZ() {
+//             return v[2];
+//         }
+
+//         void setX(int a) {
+//             v[0] = a;
+//         }
+
+//         void setY (int a ) {
+//             v[1] = a;
+//         }
+
+//         void setZ(int b) {
+//             v[2] = b;
+//         }
+
+//         void ispis() {
+//             cout<<"v(";
+
+//             for(int i = 0; i < 3; i++) {
+//                 cout<<v[i]<<", ";
+//             }
+
+//             cout<<")"<<endl;
+//         }
+
+//         Vektor dodaj(Vektor v);
+//         // v3 = v1.dodaj(v2);
+
+//         Vektor operator + (Vektor v);
+//         //preklopanje operatora +, poziv: v3=v1+v2;
+
+//         Vektor pomnozi(int k);
+//         // v3 = v1.pomnozi(5);
+
+//         Vektor operator *(int k);
+//         // preklopljeni operaor *. poziv: v3 = v1 * 5;
+
+//         const Vektor& operator = (const Vektor& v);
+//         // preklopljeni operator =
+
+//         Vektor operator ++();
+//         // prefiksni, poziv: v1++
+//         Vektor operator ++(int);
+//         // postfiksni poziv ++v1
+
+//         Vektor operator -();
+//         // preklopljeni operator -. poziv: v3 = -v1;
+
+//         int & operator [] (int i);
+//         /*preklopljeno indeksiranje npr da smo hteli da pristupimo elementu X u vektoru v1 pisali bismo v1.getX(); umesto toga sa ovim operatorom mozemo koristiti v1[0], gde je v1 objekat klase vektor. */
+
+// };
+
+// Vektor Vektor::operator +(Vektor v1) {
+//     Vektor v2 = *this;
+//     for(int i = 0; i < 3; i++) v2.v[i] += v1.v[i];
+//     return v2;
+// }
+
+// Vektor Vektor::operator* (int k) {
+//     Vektor v2 = *this;
+
+//     for(int i = 0; i < 3; i++) v2.v[i] *= k;
+
+//     return v2;
+// }
+
+// const Vektor& Vektor::operator = (const Vektor & v1) {
+
+//     if(&v1 == this) return *this;
+
+//     for(int i = 0; i < 3; i++) v[i] = v1.v[i];
+
+//     return *this;
+
+// }
+
+// Vektor Vektor::operator ++(int) {
+//     for(int i = 0; i < 3; i++) v[i]++;
+//     return *this;
+// }
+
+// Vektor Vektor::operator ++() {
+//     for(int i = 0; i < 3; i++ ) v[i]++;
+//     return *this;
+// }
+
+// Vektor Vektor::operator -() {
+//     Vektor t = *this;
+
+//     for(int i = 0; i < 3; i++) t.v[i]*=-1;
+
+//     return t;
+// }
+
+// int & Vektor::operator[](int i) {
+//     return v[i];
+// }
+
+// int main() {
+//     int a[] = {1, 2, 3};
+
+//     Vektor v(a);
+//     v.ispis();
+//     Vektor zbir = v + v;
+//     zbir.ispis();
+
+//     (v * 2).ispis();
+    
+//     v = v = zbir;
+
+//     zbir.ispis();
+
+//     (zbir++).ispis();
+//     (-v).ispis();
+//     cout<<v[2];
+
+//     return 0;
+
+// }
+
+//...........................................................
+
+// using namespace std;
+
+// class Razlomak {
+//     int broj, imen;
+
+//     public: 
+//         Razlomak (int a, int b) : broj(a), imen(b) {};
+        
+//         int getBroj() {
+//             return broj;    
+//         }
+
+//         int getImen() {
+//             return imen;
+//         }
+
+//         void setBroj(int a) {
+//             broj = a;
+//         }
+
+//         void setImen(int b) {
+//             imen = b;
+//         }
+
+//         void ispis() {
+//             cout<<broj<<"/"<<imen<<"\n";
+//         }
+        
+//         friend Razlomak operator +(Razlomak v1,Razlomak v2);
+        
+//         Razlomak operator *(int k);
+        
+//         const Razlomak& operator=(const Razlomak& v);
+        
+//         friend Razlomak operator ++(Razlomak r);//prefiksni
+//         Razlomak operator ++(int);//postfiksni
+//         Razlomak operator -();
+// 	    Razlomak operator <<(ostream &out);
+// 	    friend ostream & operator <<(ostream &out,Razlomak r);
+// 	    friend istream & operator >>(istream &in,Razlomak &r);
+
+// };
+
+// Razlomak operator +(Razlomak v1,Razlomak v2){
+//     Razlomak v(v1.broj*v2.imen+v1.imen*v2.broj,v1.imen*v2.imen);
+// 	return v;
+// }
+
+// Razlomak Razlomak::operator *(int k){
+//     Razlomak v2(broj*k,imen);
+// 	return v2;
+// }
+
+// const Razlomak& Razlomak::operator=(const Razlomak& v){
+//   if( &v==this) return *this;
+//   broj=v.broj;
+//   imen=v.imen;
+//   return *this;
+// }
+  
+// Razlomak Razlomak::operator ++(int){
+//     broj++;
+// 	return *this;
+// }
+
+// Razlomak operator ++(Razlomak r){
+//     r.broj++;
+// 	return r;
+// }
+
+// Razlomak Razlomak::operator -(){
+// Razlomak t=*this ;	    
+// t.broj*=-1;
+// return t;
+// }
+	
+// ostream& operator <<(ostream &out,Razlomak r){
+// out<<r.imen<<"/"<<r.broj;
+//   return out;
+// }
+
+// istream & operator >>(istream &in,Razlomak& r){
+//  cout<<"Unesite razlomak";
+//  in>>r.imen>>r.broj;
+//  return in;
+// }
+
+// Razlomak Razlomak::operator <<(ostream &out){
+//   out<<imen<<"/"<<broj;
+//   return *this;
+// }
+
+// int main(){
+//   Razlomak v(1,2);  
+//   v.ispis();
+//   Razlomak zbir = v+v;
+//   zbir.ispis();
+
+//   (v*2).ispis();
+//   v=v=zbir;  
+//   zbir.ispis();  
+//   (zbir++).ispis();  
+//   (-v).ispis();
+//   cout<<v;
+//   cin>>v;
+//   v<<cout;
+//   return 0;
 // }
