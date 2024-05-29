@@ -48,6 +48,33 @@
 
 // ...................................................
 
+// using namespace std;
+
+// class Box {
+//     double width;
+
+//     public:
+//         void setWidth(double wid) {
+//             this -> width = wid;
+//         }
+
+//         friend void printWidth(Box box);
+// };
+
+// void printWidth(Box box) {
+//     cout<<"Width of a box: "<<box.width<<endl;
+// }
+
+// int main() {
+//     Box box;
+
+//     box.setWidth(4.2);
+
+//     printWidth(box);
+// }
+
+//.......................................................
+
 // // ENUMERACIJA
 
 // using namespace std;
@@ -57,7 +84,7 @@
 // class Izvodac {
 //     string naziv;
 //     Zanr zanr;
-//     //static string str_zanr[];
+//     // static string str_zanr[];
 
 //     string nadiZanr(Zanr zanr) {
 //         switch(zanr) {
@@ -96,10 +123,9 @@
 // // string Izvodjac::str_zanr[]
 // // = { "pop", "rep", "rok" };
 
-// //  void Izvodjac::pisi() {
-// // cout << naziv << "(" << str_zanr[zanr] << ")" << endl;
-// // }
-
+//  void Izvodjac::pisi() {
+// cout << naziv << "(" << str_zanr[zanr] << ")" << endl;
+// }
 
 // class Pesma {
 //     int min, sek;
@@ -156,3 +182,6 @@
 
 //         return 0;
 // }
+
+//..........................................
+

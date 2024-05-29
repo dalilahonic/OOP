@@ -28,6 +28,35 @@
 
 // }
 
+//.................................................................
+
+// Encapsulation
+
+// We encapsulated the 'speed' of the car, allowing methods like accelerate and break to interact with it, but not allowing direct access to the 'speed' variable
+
+// class Car {
+//     private:
+//         int speed;
+//     public:
+//     Car() : speed(0) {};
+
+//     void accelerate() {
+//         speed += 10;
+//     }
+    
+//     void brake() {
+//         if (speed >= 10) {
+//             speed -= 10;
+//         } else {
+//             speed = 0;
+//         }
+//     }
+
+//     int getSpeed() const {
+//         return speed;
+//     }
+// }
+
 //................................................
 
 // class Clan {
@@ -54,9 +83,9 @@
 //         void setCBroj(int cbr) {
 //             cbroj = cbr;
 //         }
-//         void setIP(char *ip) {
-//             strcpy(imeprezime, ip);
-//         }
+        // void setIP(char *ip) {
+        //     strcpy(imeprezime, ip);
+        // }
 //         void setStanje(float stanje) {
 //             this->stanje = stanje;
 //         }
@@ -96,6 +125,8 @@
 
 //...................................................................
 
+// KONSTRUKTOR KOPIRANJA
+
 // class Fibonaci {
 //     public:
 //         int n;
@@ -129,8 +160,8 @@
 //             for(int i = 0; i < this->n; i++) {
 //                 this->niz[i] = F.niz[i];
 //             }
-            
 //         }
+
 //         int suma() {
 //             int s = 0;
 //             for(int i = 0; i < this->n; i++) {
@@ -138,11 +169,13 @@
 //             }
 //             return s;
 //         }
+
 //         int vrednost(int i) {
 //             if(i > n) return -1;
 
 //             return niz[i - 1];
 //         }
+
 //         void prosiri(int x) {
 //             int *pomocni;
 //             pomocni = new int[n];
@@ -151,7 +184,7 @@
 //             }
 //             delete [] niz;
             
-//             n+=x;
+//             n += x;
 //             niz = new int[n];
 
 //             for(int i = 0; i < (n - x); i++) {
@@ -222,8 +255,8 @@
 //             delete [] elementi;
 //         }
 
-//         //n1(1,2,3,4) + n2(4,5)= n3(5,7,3,4)
-//         //n3=n1.dodaj(n2)   
+//         // n1(1,2,3,4) + n2(4,5)= n3(5,7,3,4)
+//         // n3=n1.dodaj(n2)   
 //         Niz dodaj(const Niz& n2) {
 //             Niz n3(n);
 //             for(int i = 0; i < n; i++) {
@@ -302,6 +335,7 @@
 //                 koeficijenti[i] = 1;
 //             }
 //         }
+
 //         Polinom(int n1) {
 //             n = n1;
 //             koeficijenti = new double[n + 1];

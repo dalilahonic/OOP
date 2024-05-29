@@ -80,6 +80,9 @@
 //     for(int i = 0; i < 3; i++) v2.v[i] += v1.v[i];
 //     return v2;
 // }
+// // v6 = v4 + v5
+// // operator + is called on v4 with v5 as an argument
+
 
 // Vektor Vektor::operator* (int k) {
 //     Vektor v2 = *this;

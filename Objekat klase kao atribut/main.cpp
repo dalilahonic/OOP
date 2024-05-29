@@ -224,7 +224,7 @@
 //             int s = 0;
 //             if(ocena1.jeLiPolozio() == true) s++;
 //             if(ocena2.jeLiPolozio() == true) s++;
-//             if(ocena3.jeLiPolozio() == ture) s++;
+//             if(ocena3.jeLiPolozio() == true) s++;
 
 //             return s;
 //         }
@@ -248,4 +248,41 @@
 //     Student enes("Enes",o1,o2,o3); 
 //     enes.ispisi();
 //     return 0; 
+// }
+
+//...................................
+
+// using namespace std;
+
+// class Poklon { 
+//     public: 
+//         static int posId; 
+//     private:
+//         int id; 
+//         float cena;
+//     public:
+//         Poklon(float c) {
+//             cena = c; 
+//             id = ++posId;
+//         }
+        
+//         Poklon(const Poklon& p) { 
+//             cena = p.cena; 
+//             id = ++posId;
+//         } 
+//         void  ispis() {  
+//             cout<< id <<"("<< cena <<")";
+//         } 
+// }; 
+
+// int Poklon::posId = 0; 
+
+// int main() {
+//     Poklon p1(500),p2(1500);
+//     p1.ispis();
+//     p2.ispis();
+//     Poklon p3 = p1;
+//     p3.ispis();
+//     cout<<"Trenutno je stvoreno "<<Poklon::posId<<" objekata klase Poklon"<<endl;
+//     return 0;
 // }
