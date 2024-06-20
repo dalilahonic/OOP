@@ -1,4 +1,5 @@
 #include <iostream>
+#include<string.h>
 
 using namespace std;
 
@@ -78,4 +79,72 @@ using namespace std;
 // }
 
 //...................................................
+
+// template <class T, int k>
+
+// class Vekt {
+//     int duz;
+//     T niz[k];
+
+//     public:
+//         Vekt();
+//         T& operator[](int i) const {
+//             return niz[i];
+//         };
+// };
+
+// //U definiciji metode generičke klase, uz ime klase u operaciji ::mora da stoje i argumenti
+// template <class T, int k> Vekt <T, k>::Vekt() {
+//     duz = k;
+//     for(int i = 0; i < k; niz[i++] = T());
+// }
+
+// Vekt<int, 10>niz1; // vektor čiji su elementi celi brojevi  
+// Vekt<double, 20>niz2; // vektor čiji su elementi realni brojevi 
+// class A{int i;};
+// Vekt<A,5>a; //vektor čiji su elementi objekti klase A
+
+//....................................................
+
+// class A {
+//     double x;
+    
+//     public:
+//         template <typename T> A(const T& t) :x(t) {};
+//         template <typename T> void m(const T & t);
+// };
+
+// template <typename T> void A::m(const T&t) {
+//     x = t;
+// }
+
+// void f1() {
+//     A a1(5);
+//     A a2(1.2); 
+//     A a3('q');
+//     a1.template m<int>(1.2); 
+//     a1.template m<char>(3.4); 
+//     a1.m(3.4);
+// }
+
+// template <typename T> 
+// class B   {
+//     T t;
+//     public:
+//     template<typename U> void m(const U& u);
+// };
+
+// template <typename T> template<typename U> void B<T>::m(const U& u){
+//     t=u;
+// };
+
+// void f2(){  
+//     B<int> b1;  
+//     B<float> b2;
+//     b1.m(55);
+//     b2.m(55);
+//     b2.template m<char>(55);
+// };
+
+//...........................................
 
